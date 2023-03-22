@@ -1,0 +1,32 @@
+
+
+.product { 
+    display: block;
+    aspect-ratio: 3/4;
+    width: 15rem;
+
+    border: 0.05rem solid red;
+    padding: 1%;
+    /* overflow: scroll; */
+    margin: 1rem;
+   
+
+}
+
+.product a { 
+    color: black;
+
+}
+.product a:hover { 
+    text-decoration: none;
+
+    color: rgb(73, 71, 71);
+}
+
+.products { 
+ display: flex;
+ flex-wrap: wrap;
+ 
+ 
+}
+
