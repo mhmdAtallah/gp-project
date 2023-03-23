@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,7 @@ Route::post('product/store', [ProductController::class, "store"]);
 Route::get('product/update/{product}', [ProductController::class, "edit"]);
 Route::post('product/update/{product}', [ProductController::class, "update"]);
 Route::post('product/destroy/{product}', [ProductController::class, "destroy"]);
+
+
+Route::get('register', [RegisterController::class, 'create']);
+Route::post('register', [RegisterController::class, 'store']);

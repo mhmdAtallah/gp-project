@@ -16,13 +16,24 @@
 
 <body>
 
-    <ul class="nav">
-        <li class="nav-l"><a class="{{ request()->path() === '/' ? 'active' : '' }}" href="/">Home</a></li>
-        <li class="nav-l"><a href="/products" class="{{ request()->path() === 'products' ? 'active' : '' }}">
-                Products</a></li>
+    <div class="header">
+        <div class="nav">
+            <li class="nav-l"><a class="{{ request()->path() === '/' ? 'active' : '' }}" href="/">Home</a></li>
+            <li class="nav-l"><a href="/products" class="{{ request()->path() === 'products' ? 'active' : '' }}">
+                    Products</a></li>
+        </div>
 
-    </ul>
+        <div class="auth">
+            <a href="/register">Register</a>
+        </div>
+    </div>
 
+
+
+
+    @if (session()->has('register'))
+        <span class="flash"> {{ session()->get('register') }} </span>
+    @endif
 
     {{ $slot }}
 
