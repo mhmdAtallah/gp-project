@@ -1,5 +1,5 @@
 <x-layout :title="'Create Product '" :css="'form.css'">
-    <form class="create-form" action="/product/store" method="post">
+    <form class="create-form" action="'/product/store" method="post">
         @csrf
         <div class="form-input">
             <label class="label" class="input" for="title">Title : </label>
@@ -22,6 +22,8 @@
         </div>
 
         <button type="submit">Add Product</button>
+        <a href={{ url()->previous() }}>Cancel</a>
+
     </form>
 
 </x-layout>
