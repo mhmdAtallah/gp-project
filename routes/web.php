@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Product;
@@ -29,3 +30,7 @@ Route::post('product/destroy/{product}', [ProductController::class, "destroy"]);
 
 Route::get('register', [RegisterController::class, 'create']);
 Route::post('register', [RegisterController::class, 'store']);
+
+
+Route::get('login', [LoginController::class, 'create']);
+Route::post('login', [LoginController::class, 'store']);

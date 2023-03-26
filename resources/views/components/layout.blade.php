@@ -31,8 +31,8 @@
 
 
 
-    @if (session()->has('register'))
-        <span class="flash"> {{ session()->get('register') }} </span>
+    @if (session()->has('auth'))
+        <span class="flash"> {{ session()->get('auth') }} </span>
     @endif
 
     {{ $slot }}

@@ -25,7 +25,7 @@ class RegisterController extends Controller
 
         User::create($form);
 
-        session()->flash('register', "User registered successfully ");
+        session()->flash('auth', "User registered successfully ");
 
         return redirect('/');
     }
