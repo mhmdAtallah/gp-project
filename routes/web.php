@@ -21,16 +21,17 @@ Route::get('/', fn() => view('home', ['products' => Product::all()]));
 
 Route::get('/products', [ProductController::class, "index"]);
 Route::get('/product/{product}', [ProductController::class, "show"]);
-Route::get('products/create', [ProductController::class, "create"]);
-Route::post('product/store', [ProductController::class, "store"]);
-Route::get('product/update/{product}', [ProductController::class, "edit"]);
-Route::post('product/update/{product}', [ProductController::class, "update"]);
-Route::post('product/destroy/{product}', [ProductController::class, "destroy"]);
+Route::get('products/create', [ProductController::class, "create"])->middleware('auth');
+Route::post('product/store', [ProductController::class, "store"])->middleware('auth');
+Route::get('product/update/{product}', [ProductController::class, "edit"])->middleware('auth');
+Route::post('product/update/{product}', [ProductController::class, "update"])->middleware('auth');
+Route::post('product/destroy/{product}', [ProductController::class, "destroy"])->middleware('auth');
 
 
-Route::get('register', [RegisterController::class, 'create']);
-Route::post('register', [RegisterController::class, 'store']);
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 
 
-Route::get('login', [LoginController::class, 'create']);
-Route::post('login', [LoginController::class, 'store']);
+Route::get('login', [LoginController::class, 'create'])->middleware('guest');
+Route::post('login', [LoginController::class, 'store'])->middleware('guest');
+Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth');

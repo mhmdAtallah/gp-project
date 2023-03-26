@@ -26,5 +26,10 @@
         <div class="form-input">
             <button type="submit">login</button>
         </div>
+
+
+        @error('login')
+            <span style="color:red; text-align:center;">{{ $message }}</span>
+        @enderror
     </form>
 </x-layout>

@@ -25,7 +25,8 @@ class LoginController extends Controller
 
         $credentials = $req->only('email', 'password');
         if (!auth()->attempt($credentials)) {
-            return redirect('/login')->with('auth', 'Credentials not valid  ');
+            return redirect('/login')->withErrors(['login' => 'Your provided credentials could not be verified.'])->withInput($credentials);
+
         }
 
         return redirect('/')->with('auth', 'Welcome Back!');

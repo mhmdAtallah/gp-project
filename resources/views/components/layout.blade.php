@@ -24,7 +24,18 @@
         </div>
 
         <div class="auth">
-            <a href="/register">Register</a>
+            @auth
+
+                <form action="/logout" method="post">
+                    @csrf
+                    <button class="link" type="submit">Logout</button>
+                </form>
+            @endauth
+
+            @guest
+                <a class="link" href="/register">Register</a>
+                <a class="login-link" href="/login">Login</a>
+            @endguest
         </div>
     </div>
 
