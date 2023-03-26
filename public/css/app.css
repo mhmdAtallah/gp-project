@@ -12,6 +12,11 @@ body {
 
 }
 
+.error { 
+  color:  red;
+  font-family: monospace;
+}
+
 div.header { 
   display: flex;
   justify-content: space-between;

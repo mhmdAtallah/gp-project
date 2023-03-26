@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. 
      */
     public function index()
     {
@@ -30,11 +30,19 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        Product::create(["title" => $request->title, "price" => $request->price, "quantity" => $request->quantity, "description" => $request->description]);
+        $credentials = $req->validate([
+            "title" => ['required', 'min:3', 'max:254'],
+            "price" => ['required', 'min:3', 'max:254'],
+            "quantity" => ['required', 'min:3', 'max:254'],
+            "description" => ['required', 'min:0'],
+        ]);
 
-        return redirect('/products');
+
+        Product::create($credentials);
+
+        redirect('/products')->with('success', "product added successfully");
 
     }
 
@@ -58,11 +66,20 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $req, Product $product)
     {
+        $credentials = $req->validate([
+            "title" => ['required', 'min:3', 'max:254'],
+            "price" => ['required'],
+            "quantity" => [
+                'required',
+            ],
+            "description" => ['required', 'min:0'],
+        ]);
 
-        $product->update(["title" => $request->title, "price" => $request->price, "quantity" => $request->quantity, "description" => $request->description]);
-        return redirect("/product/" . $product->id);
+        $product->update($credentials);
+        return redirect("/product/" . $product->id)->with('success', "product updated successfully");
+
     }
 
     /**
