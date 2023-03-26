@@ -21,11 +21,11 @@ Route::get('/', fn() => view('home', ['products' => Product::all()]));
 
 Route::get('/products', [ProductController::class, "index"]);
 Route::get('/product/{product}', [ProductController::class, "show"]);
-Route::get('products/create', [ProductController::class, "create"])->middleware('auth');
-Route::post('product/store', [ProductController::class, "store"])->middleware('auth');
-Route::get('product/update/{product}', [ProductController::class, "edit"])->middleware('auth');
-Route::post('product/update/{product}', [ProductController::class, "update"])->middleware('auth');
-Route::post('product/destroy/{product}', [ProductController::class, "destroy"])->middleware('auth');
+Route::get('products/create', [ProductController::class, "create"])->middleware('admin');
+Route::post('product/store', [ProductController::class, "store"])->middleware('admin');
+Route::get('product/update/{product}', [ProductController::class, "edit"])->middleware('admin');
+Route::post('product/update/{product}', [ProductController::class, "update"])->middleware('admin');
+Route::post('product/destroy/{product}', [ProductController::class, "destroy"])->middleware('admin');
 
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');

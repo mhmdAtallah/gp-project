@@ -3,15 +3,19 @@
 
     <div class="container ">
         <x-product :product="$product"></x-product>
-        <form action="/product/destroy/{{ $product->id }}" method="post">
-            @csrf
-            <button type="submit">Delete</button>
-        </form>
 
-        <form action="/product/update/{{ $product->id }}" method="get">
-            @csrf
-            <button type="submit">Edit</button>
-        </form>
+        @can('admin')
+            <form action="/product/destroy/{{ $product->id }}" method="post">
+                @csrf
+                <button type="submit">Delete</button>
+            </form>
+
+            <form action="/product/update/{{ $product->id }}" method="get">
+                @csrf
+                <button type="submit">Edit</button>
+            </form>
+        @endcan
+
     </div>
 
 

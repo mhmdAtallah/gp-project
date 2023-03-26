@@ -5,7 +5,9 @@
         <h1>Products </h1>
         {{-- @dd($products) --}}
 
-        <a href="/products/create">Add product</a>
+        @can('admin')
+            <a href="/products/create">Add product</a>
+        @endcan
 
 
         <div class="products">
