@@ -32,7 +32,7 @@
 
         <div class="form-input">
             <label class="label" for="description">Description : </label>
-            <textarea class="input" name="description" id="description" cols="30" rows="10">value="{{ old('description') }}"</textarea>
+            <textarea class="input" name="description" id="description" cols="30" rows="10">{{ old('description') ?? $product->description }}</textarea>
             @error('description')
                 <span class="error">{{ $message }}</span>
             @enderror

@@ -4,11 +4,10 @@
     display: block;
     aspect-ratio: 3/4;
     width: 20rem;
-
-    border: 0.05rem solid red;
     padding: 1%;
- 
+    background-color: var(--second);
     margin: 1rem;
+    box-shadow: #6c757d;
    
 
 }

@@ -48,6 +48,17 @@
 
     {{ $slot }}
 
+
+    <footer>
+        <h1>contactst </h1>
+
+        @if (session()->has('success'))
+            <span class="success-flash"> {{ session()->get('success') }} </span>
+        @endif
+    </footer>
+
+
+
 </body>
 
 </html>

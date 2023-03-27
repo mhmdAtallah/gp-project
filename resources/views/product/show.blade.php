@@ -1,20 +1,35 @@
-<x-layout :css="'products.css'" :title="$product->title">
-    <a href="/products">back</a>
+<x-layout :css="'product-page.css'" :title="$product->title">
 
-    <div class="container ">
-        <x-product :product="$product"></x-product>
+    <div class="product ">
+        <div class="img">
+            <img src="{{ asset($product->image) }}" alt="img">
+        </div>
+        <div class="info">
+            <h1>{{ $product->title }}</h1>
+            <h3>Price : {{ $product->price }}$</h3>
+            <h3>Quantity : {{ $product->quantity }}</h3>
+            <p> {{ $product->description }} </p>
+            <a href="/products">back</a>
 
-        @can('admin')
-            <form action="/product/destroy/{{ $product->id }}" method="post">
-                @csrf
-                <button type="submit">Delete</button>
-            </form>
 
-            <form action="/product/update/{{ $product->id }}" method="get">
-                @csrf
-                <button type="submit">Edit</button>
-            </form>
-        @endcan
+
+            @can('admin')
+                <div class="btns">
+                    <form action="/product/destroy/{{ $product->id }}" method="post">
+                        @csrf
+                        <button class="btn btn-del" type="submit">Del</button>
+                    </form>
+
+                    <form action="/product/update/{{ $product->id }}" method="get">
+                        @csrf
+                        <button class="btn btn-edit" type="submit">Edit</button>
+                    </form>
+                </div>
+            @endcan
+
+        </div>
+
+
 
     </div>
 
