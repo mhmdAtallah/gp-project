@@ -5,6 +5,6 @@
         <h3>Price : {{ $product->price }} </h3>
         <h3>Quantity : {{ $product->quantity }} </h3>
         <p>Description : {{ $product->description }} </p>
-        <img src="{{ $product->image }}" alt="image" width="200" />
+        <img src="{{ asset($product->image) }}" alt="image" width="200" />
     </div>
 @endif

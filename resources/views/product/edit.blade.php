@@ -3,14 +3,18 @@
         @csrf
         <div class="form-input">
             <label class="label" class="input" for="title">Title : </label>
-            <input class="input" type="text" name="title" id="title" value={{ $product->title }} required>
+            <input class="input" type="text" name="title" id="title" value={{ $product->title }} required
+                value="{{ old('title') }}">
             @error('title')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
+
+
         <div class="form-input">
             <label class="label" for="price">price : </label>
-            <input class="input" type="number" name="price" id="price" value={{ $product->price }} required>
+            <input class="input" type="number" name="price" id="price" value={{ $product->price }} required
+                value="{{ old('price') }}">
             @error('price')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -18,7 +22,8 @@
 
         <div class="form-input">
             <label class="label" for="quantity">Quentity : </label>
-            <input class="input" type="number" name="quantity" id="quantity" value={{ $product->quantity }} required>
+            <input class="input" type="number" name="quantity" id="quantity" value={{ $product->quantity }} required
+                value="{{ old('quantity') }}">
             @error('quantity')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -27,7 +32,7 @@
 
         <div class="form-input">
             <label class="label" for="description">Description : </label>
-            <textarea class="input" name="description" id="description" cols="30" rows="10">{{ $product->description }}</textarea>
+            <textarea class="input" name="description" id="description" cols="30" rows="10">value="{{ old('description') }}"</textarea>
             @error('description')
                 <span class="error">{{ $message }}</span>
             @enderror
