@@ -33,17 +33,34 @@ class ProductController extends Controller
      */
     public function store(Request $req)
     {
+
         $credentials = $req->validate([
             "title" => ['required', 'min:3', 'max:254'],
-            "price" => ['required', 'min:3', 'max:254'],
-            "quantity" => ['required', 'min:3', 'max:254'],
+            "price" => ['required'],
+            "quantity" => ['required'],
             "description" => ['required', 'min:0'],
+            "image" => [
+                'required',
+            ]
         ]);
 
 
-        Product::create($credentials);
+        $imgPath = "";
+        if ($req->hasFile('image')) {
+            $imgPath = $req->file("image");
+        }
 
-        redirect('/products')->with('success', "product added successfully");
+
+        Product::create([
+            "title" => $req->title,
+            "price" => $req->price,
+            "quantity" => $req->quantity,
+            "description" => $req->description,
+            "image" => "storage/products/" . now()->minutes(2) . "." . $req->file('image')->getClientOriginalExtension()
+        ]);
+        $imgPath->storeAs('products', now()->minutes(2) . "." . $req->file('image')->getClientOriginalExtension(), "public");
+
+        return redirect('/products')->with('success', "product added successfully");
 
     }
 
@@ -71,6 +88,7 @@ class ProductController extends Controller
      */
     public function update(Request $req, Product $product)
     {
+
         $credentials = $req->validate([
             "title" => ['required', 'min:3', 'max:254'],
             "price" => ['required'],

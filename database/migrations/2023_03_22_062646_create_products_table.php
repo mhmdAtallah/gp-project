@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->integer("quantity")->default(0);
             $table->decimal("price")->default(0.0);
             $table->text("description");
+            $table->string("image");
 
 
             $table->timestamps();

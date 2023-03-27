@@ -1,5 +1,5 @@
 <x-layout :title="'Create Product '" :css="'form.css'">
-    <form class="create-form" action="/product/store" method="post">
+    <form class="create-form" action="/product/store" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-input">
             <label class="label" class="input" for="title">Title : </label>
@@ -30,6 +30,15 @@
             <textarea class="input" name="description" id="description" cols="30" rows="10" required></textarea>
 
             @error('description')
+                <span class="error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-input">
+            <label class="label" for="image">image : </label>
+            <input type="file" name="image" id="image" accept="image/*">
+
+            @error('image')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
