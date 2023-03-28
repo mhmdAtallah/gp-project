@@ -3,10 +3,9 @@
     <div class="container ">
 
         <h1>Products </h1>
-        {{-- @dd($products) --}}
 
         @can('admin')
-            <a href="/products/create">Add product</a>
+            <a class="add-btn" href="/products/create">New Product</a>
         @endcan
 
 
