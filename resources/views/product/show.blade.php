@@ -1,8 +1,8 @@
 <x-layout :css="'product-page.css'" :title="$product->title">
 
     <div class="product ">
-        <div class="img">
-            <img src="{{ asset($product->image) }}" alt="img">
+        <div style="background-image:url('{{ asset($product->image) }}')" class="img">
+
         </div>
         <div class="info">
             <h1>{{ $product->title }}</h1>
