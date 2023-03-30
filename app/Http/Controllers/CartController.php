@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -21,14 +22,25 @@ class CartController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $product = Product::where('id', '=', $req->product_id)->first();
+        $product->update(["quantity" => $product->quantity - $req->count]);
+        Cart::create([
+            "total" => $product->price * $req->count,
+            "quantity" => $req->count,
+            "product_id" => $req->product_id,
+            "user_id" => $req->user()->id,
+        ]);
+
+        return redirect('/products');
+
     }
 
     /**

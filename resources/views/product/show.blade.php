@@ -15,6 +15,7 @@
 
             @can('admin')
                 <div class="btns">
+
                     <form action="/product/destroy/{{ $product->id }}" method="post">
                         @csrf
                         <button class="btn btn-del" type="submit">Del</button>
@@ -26,6 +27,17 @@
                     </form>
                 </div>
             @endcan
+
+            @auth
+                <form class="cart-btn" action="/cart" method="post">
+                    @csrf
+                    <input type="hidden" name="product_id" id="product_id" value={{ $product->id }}>
+                    <input type="number" name="count" id="count" placeholder="count">
+                    <br>
+                    <button type="submit">add to cart </button>
+
+                </form>
+            @endauth
 
         </div>
 

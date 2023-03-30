@@ -10,10 +10,13 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = [];
-
+    protected $casts = [
+        'price' => 'float',
+    ];
 
     public function cart()
     {
         return $this->hasOne(Cart::class);
     }
+
 }
