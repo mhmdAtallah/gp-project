@@ -30,14 +30,18 @@ class CartController extends Controller
      */
     public function store(Request $req)
     {
+
+
         $product = Product::where('id', '=', $req->product_id)->first();
         $product->update(["quantity" => $product->quantity - $req->count]);
         Cart::create([
             "total" => $product->price * $req->count,
             "quantity" => $req->count,
             "product_id" => $req->product_id,
+            "product_name" => $req->product_name,
             "user_id" => $req->user()->id,
         ]);
+
 
         return redirect('/products');
 

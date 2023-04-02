@@ -173,3 +173,9 @@ span.success-flash {
   border-radius: 0.5rem;
 
 }
+
+
+.cart-item { 
+  border: red solid 1px;
+  margin: 5px;
+}

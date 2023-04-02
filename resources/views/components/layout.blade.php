@@ -10,11 +10,13 @@
 
     <link rel="stylesheet" href="/../css/app.css">
     <link rel="stylesheet" href="/../css/{{ $css }}">
-    {{-- @dd(public_path($css ?? '')) --}}
 </head>
 
 
 <body>
+
+
+
 
     <div class="header">
         <div class="nav">
@@ -40,8 +42,6 @@
     </div>
 
 
-
-
     @if (session()->has('auth'))
         <span class="flash"> {{ session()->get('auth') }} </span>
     @endif
@@ -56,6 +56,21 @@
             <span class="success-flash"> {{ session()->get('success') }} </span>
         @endif
     </footer>
+
+    @auth
+
+        @if (auth()->user()->cart()->count())
+            <div class="cart">
+                @foreach (auth()->user()->cart()->get() as $cart)
+                    <div class="cart-item">product:{{ $cart->product_name }} <br> quantity:
+                        {{ $cart->quantity }} total
+                        price :{{ $cart->total }}$</div>
+                @endforeach
+            </div>
+        @endif
+    @endauth
+
+
 
 
 
