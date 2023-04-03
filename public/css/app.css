@@ -175,7 +175,7 @@ span.success-flash {
 }
 
 
-/* cart  */
+/* ************************* cart ******************************  */
 
 .cart { 
   position: fixed;
@@ -190,7 +190,6 @@ span.success-flash {
   padding-left: 1rem;
   padding-right: 1rem;
 
-  padding-top: 4rem;
 
 
   
@@ -199,9 +198,16 @@ span.success-flash {
 
 .cart-header{ 
   cursor: pointer;
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 1rem;
+  background-color: var(--second);
+  width: 100%;
+
+
+}
+
+.cart-header h4 { 
 
 }
 
@@ -255,7 +261,10 @@ span.success-flash {
  .collapse   { 
   width: 8vw;
   height: 4vh;
-  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0%;
  }
 
 

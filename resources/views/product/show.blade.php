@@ -35,7 +35,7 @@
                     <input type="hidden" name="product_id" id="product_id" value={{ $product->id }}>
                     <input type="hidden" name="product_name" id="product_name" value="{{ $product->title }}">
 
-                    <input type="number" name="count" id="count" placeholder="count">
+                    <input type="number" name="count" id="count" placeholder="count" value="1">
                     <br>
                     <button type="submit">add to cart </button>
 
