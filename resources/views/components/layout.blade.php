@@ -59,28 +59,7 @@
         @endif
     </footer>
 
-    @auth
-
-        @if (auth()->user()->cart()->count())
-            <div class="cart collapse" id="cart">
-                <div class="cart-header" id="cart-header">
-                    <h4> <b id="cart-name">Show Cart</b>
-                        <span class="count">{{ auth()->user()->cart()->count() }}</span>
-                    </h4>
-
-
-                </div>
-                <div class="cart-list hide" id="cart-list">
-                    @foreach (auth()->user()->cart()->get() as $cart)
-                        <div class="cart-item">product:{{ $cart->product_name }} <br> quantity:
-                            {{ $cart->quantity }} total
-                            price :{{ $cart->total }}$</div>
-                    @endforeach
-                </div>
-            </div>
-        @endif
-    @endauth
-
+    <x-cart></x-cart>
 
     <script src="{{ asset('js/cart.js') }}"></script>
 

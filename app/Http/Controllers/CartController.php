@@ -60,15 +60,15 @@ class CartController extends Controller
      */
     public function edit(Cart $cart)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $req, Cart $cart)
     {
-        //
+        // dd($cart->quantity);
     }
 
     /**
@@ -76,6 +76,8 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        //
+        $cart->delete();
+        return redirect()->back();
+
     }
 }

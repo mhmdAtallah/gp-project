@@ -38,3 +38,4 @@ Route::post('login', [LoginController::class, 'store'])->middleware('guest');
 Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth');
 
 Route::post('/cart', [CartController::class, "store"])->middleware('auth');
+Route::post('/cart/destroy/{cart}', [CartController::class, "destroy"])->middleware('auth');
