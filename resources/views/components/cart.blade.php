@@ -23,7 +23,7 @@
                     <div class="cart-item">
                         <h4 class="flex-item">{{ $cart->product_name }}</h4>
                         <h4 class="flex-item">X{{ $cart->quantity }}</h4>
-                        <h4 class="flex-item">{{ $cart->total }}$</h4>
+                        <h4 class="flex-item">{{ $cart->total * $cart->quantity }}$</h4>
 
                         <form style="border: none" class="flex-item" action="/cart/destroy/{{ $cart->id }}"
                             method="POST">
@@ -37,3 +37,7 @@
         </div>
     @endif
 @endauth
+
+@if (session()->has('cart'))
+    <span class="flash"> {{ session()->get('cart') }} </span>
+@endif

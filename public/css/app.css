@@ -137,13 +137,15 @@ div.nav {
 
 span.flash { 
   position: fixed;
-  top: 5rem;
+  bottom: 1rem;
   right: 1rem;
   font-size: x-large;
-  background-color: var(--first);
+  background-color:rgba(255, 0, 0 , .7);
+  border : groove red .5rem ;
   color: #fff;
   padding: 1rem;
   border-radius: 0.5rem;
+  z-index: 99999999999999;
 
 }
 

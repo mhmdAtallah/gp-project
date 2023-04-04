@@ -48,6 +48,9 @@
         <span class="flash"> {{ session()->get('auth') }} </span>
     @endif
 
+
+
+
     {{ $slot }}
 
 
