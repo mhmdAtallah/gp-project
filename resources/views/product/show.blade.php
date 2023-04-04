@@ -28,7 +28,8 @@
                 </div>
             @endcan
 
-            @auth
+
+            @can('customer')
                 <form class="cart-btn" action="/cart" method="post">
                     @csrf
 
@@ -40,7 +41,8 @@
                     <button type="submit">add to cart </button>
 
                 </form>
-            @endauth
+            @endcan
+
 
         </div>
 

@@ -76,6 +76,8 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
+        $product = Product::find($cart->product_id)->first();
+        $product->update(["quantity" => $product->quantity + $cart->quantity]);
         $cart->delete();
         return redirect()->back();
 

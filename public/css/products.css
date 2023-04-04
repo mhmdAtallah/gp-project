@@ -15,6 +15,12 @@
 
 }
 
+.sold  { 
+    background-color: var(--fourth) ;
+    opacity: .5;
+
+}
+
 .product:hover { 
     box-shadow: 0 12px 12px 0  var(--fourth), 0 10px 25px 0 var(--fourth);
     transition: .5s ease;
